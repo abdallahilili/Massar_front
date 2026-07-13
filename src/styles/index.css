@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Vert institutionnel — couleur principale */
+  --color-primary-50: #eafaf3;
+  --color-primary-100: #d0f2e1;
+  --color-primary-200: #a4e4c4;
+  --color-primary-300: #6fcea1;
+  --color-primary-400: #3fb17e;
+  --color-primary-500: #229463;
+  --color-primary-600: #0f7a4f;
+  --color-primary-700: #0c6142;
+  --color-primary-800: #0a4d36;
+  --color-primary-900: #08402d;
+  --color-primary-950: #04241a;
+
+  /* Or / Jaune mauritanien — couleur secondaire */
+  --color-gold-50: #fdf8e7;
+  --color-gold-100: #faedbf;
+  --color-gold-200: #f4da85;
+  --color-gold-300: #edc24a;
+  --color-gold-400: #e3ac26;
+  --color-gold-500: #c9911a;
+  --color-gold-600: #a67314;
+  --color-gold-700: #825613;
+  --color-gold-800: #6b4416;
+  --color-gold-900: #5a3818;
+
+  /* Bleu discret — couleur d'accent */
+  --color-accent-50: #eef4f8;
+  --color-accent-100: #d7e6ef;
+  --color-accent-200: #b3cddf;
+  --color-accent-300: #83aec9;
+  --color-accent-400: #5389ac;
+  --color-accent-500: #366e90;
+  --color-accent-600: #2a5876;
+  --color-accent-700: #234862;
+  --color-accent-800: #1f3c52;
+  --color-accent-900: #1c3346;
+
+  /* Neutres */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f7f8f8;
+  --color-neutral-100: #eef0f1;
+  --color-neutral-200: #dde1e3;
+  --color-neutral-300: #c3c9cd;
+  --color-neutral-400: #9aa3a9;
+  --color-neutral-500: #717b82;
+  --color-neutral-600: #545e65;
+  --color-neutral-700: #3d454b;
+  --color-neutral-800: #262b2f;
+  --color-neutral-900: #16191c;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-neutral-200);
+  }
+  html {
+    direction: rtl;
+  }
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-neutral-50);
+    color: var(--color-neutral-800);
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background-color: var(--color-primary-200);
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--color-neutral-300);
+    border-radius: 999px;
+  }
+}
