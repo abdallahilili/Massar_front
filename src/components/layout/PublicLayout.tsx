@@ -19,40 +19,45 @@ export function PublicLayout() {
   return (
     <div className="flex min-h-dvh flex-col">
       <header className="sticky top-0 z-30 border-b border-neutral-200 bg-white/90 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-2 px-3 sm:h-16 sm:px-4">
           <Logo />
-          <nav className="flex items-center gap-2">
+          <nav className="flex items-center gap-1 sm:gap-2">
             <Link
               to={ROUTES.verifyLicense}
-              className="hidden items-center gap-1.5 rounded-(--radius-md) px-3 py-2 text-sm text-neutral-600 hover:bg-neutral-100 sm:flex"
+              title="التحقق من ترخيص"
+              className="flex items-center gap-1.5 rounded-(--radius-md) p-2 text-sm text-neutral-600 hover:bg-neutral-100 sm:px-3 sm:py-2"
             >
-              <ShieldCheck className="h-4 w-4" />
-              التحقق من ترخيص
+              <ShieldCheck className="h-4 w-4 shrink-0" />
+              <span className="hidden sm:inline">التحقق من ترخيص</span>
             </Link>
             {authed ? (
               <>
                 <Button
                   size="sm"
                   variant="outline"
+                  title="لوحتي"
+                  className="px-2 sm:px-3"
                   onClick={() => navigate(role ? dashboardByRole[role] : ROUTES.home)}
                 >
                   <LayoutDashboard className="h-4 w-4" />
-                  لوحتي
+                  <span className="hidden sm:inline">لوحتي</span>
                 </Button>
                 <Button
                   size="sm"
                   variant="ghost"
+                  title="خروج"
+                  className="px-2 sm:px-3"
                   onClick={() => {
                     logout();
                     navigate(ROUTES.home);
                   }}
                 >
                   <LogOut className="h-4 w-4" />
-                  خروج
+                  <span className="hidden sm:inline">خروج</span>
                 </Button>
               </>
             ) : (
-              <Button size="sm" variant="primary" onClick={() => navigate(ROUTES.login)}>
+              <Button size="sm" variant="primary" className="px-3" onClick={() => navigate(ROUTES.login)}>
                 <LogIn className="h-4 w-4" />
                 تسجيل الدخول
               </Button>
